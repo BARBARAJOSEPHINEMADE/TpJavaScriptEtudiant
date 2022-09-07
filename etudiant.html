@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etudiantTWF</title>
+    <style>
+         table,th,td{
+            border:1px solid blue;
+         }
+   
+    </style>
+       
+</head>
+<body>
+    
+        <input id="but" type="button" value="Nouveau">
+        <table id='tab' style="width: 750px">
+            <tr style="border:1px solid blue;">
+                <th>N <sup>o</sup>:</th>
+                <th>Noms et prenoms:</th>
+                <th>Lieu de naissance</th>
+                <th>Parcours</th>
+                <th>Sexe</th>
+                <th>Date_Naissannce</th>
+                <th>Action</th>
+            </tr>
+           
+        </table>
+        <div id="zone1"></div>
+    </div>
+    <form action="" id="form1">
+        <h1>Enregistrez les matières</h1>
+        <input type="text" id='code1' placeholder="code matiere">
+        <input type="text" id='nom1' placeholder="nom matiere">
+        <input type="text" id='volume1'placeholder="volumeHoraire matiere">
+        <input type="text" id='prof'placeholder="prof matiere">
+        <input type="text" id='ass'placeholder="assistant matiere">
+        <input type="text" id='drap'placeholder="drapeau matiere">
+        <input type="submit" value="Valider" id="bouton">
+    </form>
+
+    <form action="" id="form1">
+        <h1>Enregistrez un etudiant</h1>
+        <input type="text" id='code1' placeholder="code matiere">
+        <input type="text" id='nom1' placeholder="nom matiere">
+        <input type="text" id='volume1'placeholder="volumeHoraire matiere">
+        <input type="text" id='prof'placeholder="prof matiere">
+        <input type="text" id='ass'placeholder="assistant matiere">
+        <input type="text" id='drap'placeholder="drapeau matiere">
+        <input type="submit" value="Valider" id="bouon">
+    </form>
+    <script>
+
+        function Tmatiere(code, nom, volumeHoraire, prof, assistant, drapeau){
+            this.code=code;
+            this.nom=nom;
+            this.volumeHoraire=volumeHoraire;
+            this.prof=prof;
+            this.assistant=assistant;
+            this.drapeau=drapeau;
+
+        }
+        function Tdebouche(code, nom){
+            this.code=code;
+            this.nom=nom;
+        }
+        function Tparcours(code, nom, debouches){
+            this.code=code;
+            this.nom=nom;
+            this.debouches=debouches;
+        }
+        function Tnote(code, valeur){
+            this.code=code;
+            this.valeur=valeur;
+        }
+        function Tetudiant(mat, nom, dateNaiss, lieuNaiss, sexe, taille, poids, parcours, matieres){
+            this.mat=mat;
+            this.nom=nom;
+            this.dateNaiss=dateNaiss;
+            this.lieuNaiss=lieuNaiss;
+            this.sexe=sexe;
+            this.taille=taille;
+            this.poids=poids;
+            this.parcours=parcours;
+            this.matieres=matieres;
+
+        }
+        let btn=document.getElementById('bouton'); 
+        //let mat=new Tmatiere('B1', 'Bootstrap', 20, 'Dr Rodrigue', 'Sandrine', 'TP');
+        document.getElementById('zone1').innerHTML='<h1> Matiere I</h1>';
+        let tabl;let tr; let td1, td2, td3, td4, td5, zone6, zone7;
+        btn.addEventListener(
+            'click', (e)=>{
+                e.preventDefault();
+            let mat=new Tmatiere(document.getElementById('code1').value, document.getElementById('nom1').value, document.getElementById('volume1').value, 
+                document.getElementById('prof').value, document.getElementById('ass').value, document.getElementById('drap').value,);
+        
+                
+        
+            document.getElementById('zone1').innerHTML+=mat.code+'<br>';
+            document.getElementById('zone1').innerHTML+=mat.nom+'<br>';
+            document.getElementById('zone1').innerHTML+=mat.volumeHoraire+'<br>';
+            document.getElementById('zone1').innerHTML+=mat.prof+'<br>';
+            document.getElementById('zone1').innerHTML+=mat.assistant+'<br>';
+            document.getElementById('zone1').innerHTML+=mat.drapeau+'<br>';
+                tabl=document.getElementById('tab')
+                tr=document.createElement('tr')
+                td1=document.createElement('td')
+                td1.innerHTML=mat.code
+                td2=document.createElement('td')
+                td2.innerHTML=mat.code
+                td3=document.createElement('td')
+                td3.innerHTML=mat.code
+                td4=document.createElement('td')
+                td4.innerHTML=mat.code
+                td5=document.createElement('td')
+                td5.innerHTML=mat.code
+                td6=document.createElement('td')
+                td6.innerHTML=mat.code
+                td7=document.createElement('td')
+                td7.innerHTML=mat.code
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                tr.appendChild(td7);
+                tabl.appendChild(tr)
+
+            document.getElementById('code1').value='' 
+            document.getElementById('nom1').value='' 
+            document.getElementById('volume1').value='' 
+            document.getElementById('prof').value='' 
+            document.getElementById('ass').value=''
+            document.getElementById('drap').value=''
+            zone6= document.getElementById('form1');
+            zone6.style.display="none";
+        } )
+
+        let bout=document.getElementById('but'); 
+        bout.addEventListener(
+            'click', (e)=>{
+                e.preventDefault();
+                zone7= document.getElementById('form1');
+            zone7.style.display="block";
+
+        } )
+
+    </script>
+</body>
+</html>
